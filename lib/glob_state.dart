@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider_state_test/globs.dart';
 
+
+// Widgets' global states
 _GlobState_Child_1State? child_1_state;
 _GlobState_Child_3State? child_3_state;
 
@@ -41,6 +43,8 @@ class _GlobState_Child_2State extends State<GlobState_Child_2> {
         child: MaterialButton(
           color: Colors.blueAccent,
           onPressed: (){
+
+            // We end up having to call setstate on each instance of global state everywhere
             my_glob = my_glob +1;
             child_1_state!.setState(() {
             });
@@ -72,6 +76,8 @@ class _GlobState_Child_3State extends State<GlobState_Child_3> {
         child: MaterialButton(
           color: Colors.blueAccent,
           onPressed: (){
+
+            // calling setstate multiple times is cumbersome
             my_glob = my_glob +1;
             child_1_state!.setState(() {
             });
