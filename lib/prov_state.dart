@@ -84,7 +84,7 @@ class _ProvState_Child_3State extends State<ProvState_Child_3> {
             // Again only one method
             context.read<ProvState>().increment();
           },
-          child: Text("change prov val from " + '${context.watch<ProvState>().count}'),
+          child: Text("change prov val from child 3 ~ " + '${context.watch<ProvState>().count}'),
         )
     );
   }

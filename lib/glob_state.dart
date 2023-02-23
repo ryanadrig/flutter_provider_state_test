@@ -21,6 +21,7 @@ class _GlobState_Child_1State extends State<GlobState_Child_1> {
 
   @override
   Widget build(BuildContext context) {
+    print("glob child 1 build");
     return Container(child:
     Text("Glob val ~ " + my_glob.toString())
     );
@@ -35,8 +36,10 @@ class GlobState_Child_2 extends StatefulWidget {
 }
 
 class _GlobState_Child_2State extends State<GlobState_Child_2> {
+
   @override
   Widget build(BuildContext context) {
+    print("glob child 2 build");
     return Container(
         width: ss.width*.77,
         height: ss.width*.1,
@@ -70,6 +73,7 @@ class GlobState_Child_3 extends StatefulWidget {
 class _GlobState_Child_3State extends State<GlobState_Child_3> {
   @override
   Widget build(BuildContext context) {
+    print("glob child 3 build");
     return Container(
         width: ss.width*.77,
         height: ss.width*.1,
@@ -84,7 +88,7 @@ class _GlobState_Child_3State extends State<GlobState_Child_3> {
             child_3_state!.setState(() {
             });
           },
-          child: Text("change glob from " + my_glob.toString()),
+          child: Text("change glob from child 3 ~ " + my_glob.toString()),
         )
     );
   }

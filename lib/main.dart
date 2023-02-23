@@ -10,7 +10,8 @@ void main() {
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ProvState()),
-        ChangeNotifierProvider(create: (_) => NProvState()),
+        // ChangeNotifierProvider(create: (_) => NProvState()),
+        // ChangeNotifierProvider(create: (_) => NProvState2()),
       ],
       child:MyApp()));
 }
@@ -42,10 +43,12 @@ class Provider_Test_Root extends StatefulWidget {
 
 class _Provider_Test_RootState extends State<Provider_Test_Root> {
 
-
   @override
   Widget build(BuildContext context) {
     ss = MediaQuery.of(context).size;
+    build_child_logger =  NProv_Rebuild_Watcher();
+    build_child_logger!.createState();
+
     return SafeArea(child:Scaffold(
       body:
           Container(height:ss.height,
@@ -64,8 +67,6 @@ class _Provider_Test_RootState extends State<Provider_Test_Root> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-
-
         Text("Global State Method Lifts state but cumbersome"),
         GlobState_Child_1(),
         GlobState_Child_2(),
@@ -108,7 +109,16 @@ class _Provider_Test_RootState extends State<Provider_Test_Root> {
                   )
               ),
               // height: ss.height,
-              child: Column(
+              child:
+
+              MultiProvider(
+                providers: [
+                  // ChangeNotifierProvider(create: (_) => ProvState()),
+                  ChangeNotifierProvider(create: (_) => NProvState()),
+                  ChangeNotifierProvider(create: (_) => NProvState2()),
+                ],
+                child:
+              Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
 
@@ -117,7 +127,7 @@ class _Provider_Test_RootState extends State<Provider_Test_Root> {
                   NProvState_Child_1(),
                   NProvState_Child_2(),
 
-                ],),
+                ],)),
             )),
 
     ])
