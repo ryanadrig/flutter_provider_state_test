@@ -4,11 +4,13 @@ import 'package:provider/provider.dart';
 import 'package:provider_state_test/globs.dart';
 import 'package:provider_state_test/glob_state.dart';
 import 'package:provider_state_test/prov_state.dart';
+import 'package:provider_state_test/nprov_state.dart';
 
 void main() {
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ProvState()),
+        ChangeNotifierProvider(create: (_) => NProvState()),
       ],
       child:MyApp()));
 }
@@ -94,6 +96,29 @@ class _Provider_Test_RootState extends State<Provider_Test_Root> {
 
               ],),
           )),
+
+        Padding(
+            padding: EdgeInsets.symmetric(vertical: ss.height*.01),
+            child:Container(
+              padding: EdgeInsets.symmetric(vertical: ss.height*.01),
+              decoration: BoxDecoration(
+                  border: Border(
+                      top: BorderSide(width:2.0, color: Colors.blue),
+                      bottom: BorderSide(width:2.0, color: Colors.blue)
+                  )
+              ),
+              // height: ss.height,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+
+
+                  Text("Looking at rebuild behavior of nested provider"),
+                  NProvState_Child_1(),
+                  NProvState_Child_2(),
+
+                ],),
+            )),
 
     ])
 

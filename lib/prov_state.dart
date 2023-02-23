@@ -30,6 +30,7 @@ class ProvState_Child_1 extends StatefulWidget {
 class _ProvState_Child_1State extends State<ProvState_Child_1> {
   @override
   Widget build(BuildContext context) {
+    print("prov child 1 build");
     return Container(
       child:Text('Prov val ~ ${context.watch<ProvState>().count}',));
   }
@@ -45,6 +46,7 @@ class ProvState_Child_2 extends StatefulWidget {
 class _ProvState_Child_2State extends State<ProvState_Child_2> {
   @override
   Widget build(BuildContext context) {
+    print("prov child 2 build");
     return Container(
         width: ss.width*.77,
         height: ss.width*.1,
@@ -72,6 +74,7 @@ class ProvState_Child_3 extends StatefulWidget {
 class _ProvState_Child_3State extends State<ProvState_Child_3> {
   @override
   Widget build(BuildContext context) {
+    print("prov child 3 build");
     return Container(
         width: ss.width*.77,
         height: ss.width*.1,
